@@ -11,11 +11,7 @@ const ratingSort = function (a, b) {
 };
 
 const appSort = function (a, b) {
-  return a.App.toLowerCase() === b.App.toLowerCase()
-    ? 0
-    : a.App.toLowerCase() > b.App.toLowerCase()
-    ? 1
-    : -1;
+  return a.App.toLowerCase() === b.App.toLowerCase() ? 0 : a.App.toLowerCase() > b.App.toLowerCase() ? 1 : -1;
 };
 
 
@@ -32,8 +28,8 @@ app.get("/apps", (req, res) => {
 
     if (genres) {
       if (!["Action", "Puzzle", "Strategy", "Casual", "Arcade", "Card"].includes(genres
-        )
-      ) {
+        ))
+      {
         return res.status(400).send("Genres must be one of Action, Puzzle, Strategy, Casual, Arcade, or Card");
       }
       results = apps.filter((app) => app.Genres.includes(genres));
@@ -53,6 +49,5 @@ app.get("/apps", (req, res) => {
 });
 
 
-app.listen(8000, () => {
-  console.log("Server started on PORT 8000");
-});
+module.exports = app;
+
