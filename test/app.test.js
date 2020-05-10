@@ -52,13 +52,13 @@ describe("Get /apps", () => {
            // because we're comparing 2 items in the array at a time
            while (i < res.body.length - 1) {
              // compare app at `i` with next app at `i + 1`
-             const appAtI = res.body[i];
-             const appAtIPlus1 = res.body[i + 1];
+             const appAtIndex = res.body[i];
+             const appAtIndexPlus1 = res.body[i + 1];
              // if the next app is less than the app at i,
-             if (appAtIPlus1.App < appAtI.App) {
+             if (appAtIndexPlus1.App < appAtIndex.App) {
                // the app were not sorted correctly
-               console.log(appAtIPlus1.App);
-               console.log(appAtI.App);
+               console.log(appAtIndexPlus1.App);
+               console.log(appAtIndex.App);
                sorted = false;
                break; // exit the loop
              }
